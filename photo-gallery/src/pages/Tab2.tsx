@@ -1,4 +1,4 @@
-import ExploreContainer from '../components/ExploreContainer';
+import ExploreContainer from "../components/ExploreContainer";
 import { camera, trash, close } from "ionicons/icons";
 import {
   IonContent,
@@ -15,11 +15,11 @@ import {
   IonImg,
   IonActionSheet,
 } from "@ionic/react";
-import './Tab2.css';
-import { usePhotoGallery } from '../hooks/usePhotoGallery';
+import "./Tab2.css";
+import { usePhotoGallery } from "../hooks/usePhotoGallery";
 
 const Tab2: React.FC = () => {
-  const {takePhoto} = usePhotoGallery();
+  const { takePhoto, photos } = usePhotoGallery();
   return (
     <IonPage>
       <IonHeader>
@@ -35,6 +35,17 @@ const Tab2: React.FC = () => {
         </IonHeader>
         <ExploreContainer name="Tab 2 page" />
         <IonContent>
+          <IonGrid>
+            <IonRow>
+              {photos.map((photo, index) => (
+                <IonCol
+                  size="6"
+                  key={index}>
+                  <IonImg src={photo.webviewPath} />
+                </IonCol>
+              ))}
+            </IonRow>
+          </IonGrid>
           <IonFab
             vertical="bottom"
             horizontal="center"
