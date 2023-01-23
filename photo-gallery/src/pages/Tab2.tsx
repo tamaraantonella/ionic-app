@@ -35,11 +35,11 @@ const Tab2: React.FC = () => {
         </IonHeader>
         <ExploreContainer name="Tab 2 page" />
         <IonContent>
-          <IonGrid>
+          <IonGrid >
             <IonRow>
               {photos.map((photo, index) => (
                 <IonCol
-                  size="6"
+                  size="3"
                   key={index}>
                   <IonImg src={photo.webviewPath} />
                 </IonCol>
